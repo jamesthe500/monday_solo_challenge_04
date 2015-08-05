@@ -17,10 +17,12 @@ $(document).ready(function (){
     // makes all groups hidden
     // removes the height attribute for the next click of random
     $('.selector').on('click', function(){
+        $('.selector').removeClass('active');
         numOfGroups = $(this).data('id');
         $('.group').children().remove();
         $('.group').addClass('hide');
         $('.group').removeAttr("style");
+        $(this).addClass('active');
     });
 
     // checks to see if a number has been clicked first
@@ -53,6 +55,7 @@ $(document).ready(function (){
     });
 
     // array shuffler of my own making
+    //
     function superArrayShuffle(array){
         console.log(array);
         var numToShuffle = array.length;

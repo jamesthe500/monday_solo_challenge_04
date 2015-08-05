@@ -6,6 +6,10 @@
     font-family: Verdana, Geneva, sans-serif;
 }
 
+.active {
+    background-color: #00b3ee;
+}
+
 .hide {
     display: none;
 }

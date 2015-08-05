@@ -12,13 +12,24 @@ $(document).ready(function (){
         }
     }); //ajax call
 
+    // sets the number of groups to whatever was clicked.
+    // clears out any names from previous runs
+    // makes all groups hidden
+    // removes the height attribute for the next click of random
     $('.selector').on('click', function(){
+        $('.selector').removeClass('active');
         numOfGroups = $(this).data('id');
         $('.group').children().remove();
         $('.group').addClass('hide');
         $('.group').removeAttr("style");
+        $(this).addClass('active');
     });
 
+    // checks to see if a number has been clicked first
+    // runs shuffle, writes a temp array
+    // while there are people in the thunderdome, drop them into groups in turn
+    // after each "row" is written, clear out the groupUp identifier, set the 1st group to it.
+    // after all are written, set the height of all to the height of the first
     $('.randomizer').on('click', function(){
         if (numOfGroups == 0){
             alert("Please select a number of groups.");
@@ -43,6 +54,8 @@ $(document).ready(function (){
         }
     });
 
+    // array shuffler of my own making
+    //
     function superArrayShuffle(array){
         console.log(array);
         var numToShuffle = array.length;
